@@ -56,22 +56,25 @@ class _SignUpButtonState extends State<SignUpButton> {
           _beingTapped = false;
           setState(() {});
         },
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 45.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0xff000000).withOpacity(0.2),
-                blurRadius: 8,
-                offset: const Offset(0, 8),
-              ),
-              BoxShadow(
-                color: const Color(0xff000000).withOpacity(0.4),
-                blurRadius: 2,
-                offset: const Offset(0, 1),
-              ),
-            ],
+            boxShadow: _beingTapped
+                ? null
+                : [
+                    BoxShadow(
+                      color: const Color(0xff000000).withOpacity(0.2),
+                      blurRadius: 8,
+                      offset: const Offset(0, 8),
+                    ),
+                    BoxShadow(
+                      color: const Color(0xff000000).withOpacity(0.4),
+                      blurRadius: 2,
+                      offset: const Offset(0, 1),
+                    ),
+                  ],
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
