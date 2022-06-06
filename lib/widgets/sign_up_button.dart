@@ -56,8 +56,7 @@ class _SignUpButtonState extends State<SignUpButton> {
           _beingTapped = false;
           setState(() {});
         },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
+        child: Container(
           padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 45.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -78,7 +77,7 @@ class _SignUpButtonState extends State<SignUpButton> {
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              stops: [_beingTapped ? 0.0 : 0.08, 0.08],
+              stops: _beingTapped ? [0.0, 0.08] : [0.08, 0.08],
               colors: const [Color(0xffFD6D00), Color(0xffFF872D)],
             ),
           ),
